@@ -16,5 +16,5 @@
 
 ссылка на репозиторий https://github.com/Garnett163/movies-explorer-api
 
-Домен api.movies.garnett163.nomoreparties.co
 IP 51.250.28.250
+Домен Backend https://api.mesto.garnett163.nomoreparties.co
