@@ -14,7 +14,7 @@ const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
 const validate = require('./middlewares/validation');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 4000 } = process.env;
 const { MONGO_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 const { login, createUser, logout } = require('./controllers/users');
 const NotFoundError = require('./errors/NotFoundError');
@@ -29,7 +29,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:3001',
-      'https://api.movies.garnett163.nomoreparties.co',
+      'https://movies.garnett163.nomoreparties.co',
     ],
     credentials: true,
   }),
