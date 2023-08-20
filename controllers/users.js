@@ -96,10 +96,8 @@ function login(req, res, next) {
 }
 
 function logout(req, res) {
-  if (res.cookie) {
-    res.clearCookie('jwt');
-    res.send({ message: 'Вы вышли из аккаунта!' });
-  }
+  res.clearCookie('jwt');
+  res.send({ message: 'Вы вышли из аккаунта!' });
 }
 
 module.exports = {
