@@ -3,28 +3,33 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const AuthorizationError = require('../errors/AuthorizationError');
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    minlength: 2,
-    maxlength: 30,
-    default: 'Имя пользователя',
-  },
-  email: {
-    type: String,
-    require: true,
-    unique: true,
-    validate: {
-      validator: (email) => validator.isEmail(email),
-      message: 'Некорректый адрес почты',
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      minlength: 2,
+      maxlength: 30,
+      default: 'Имя пользователя',
+    },
+    email: {
+      type: String,
+      require: true,
+      unique: true,
+      validate: {
+        validator: (email) => validator.isEmail(email),
+        message: 'Некорректый адрес почты',
+      },
+    },
+    password: {
+      type: String,
+      require: true,
+      select: false,
     },
   },
-  password: {
-    type: String,
-    require: true,
-    select: false,
+  {
+    versionKey: false,
   },
-});
+);
 
 userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email })
