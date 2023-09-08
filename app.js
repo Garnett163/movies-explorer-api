@@ -28,15 +28,15 @@ const app = express();
 app.use(
   cors({
     origin: [
-      'http://localhost:3001',
+      'http://localhost:3000',
       'https://movies.garnett163.nomoreparties.co',
     ],
     credentials: true,
-  }),
+  })
 );
 
 app.use(helmet());
-app.use(limiter);
+// app.use(limiter);
 app.use(cookies());
 app.use(express.json());
 app.use(requestLogger);
